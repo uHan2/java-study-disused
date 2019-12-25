@@ -21,5 +21,4 @@ public class Bicycle
         System.out.println("Color : " + color);
         System.out.println("Price : " + price);
     }
-
 }
