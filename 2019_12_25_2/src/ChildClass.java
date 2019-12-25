@@ -25,8 +25,6 @@ public class ChildClass
         System.out.println("Name : " + Name);
         System.out.println("Gender : " + Gender);
         System.out.println("Age : " + age);
-
-        mySecret();
     }
 
     private void mySecret()
