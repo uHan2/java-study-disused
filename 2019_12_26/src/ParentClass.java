@@ -5,8 +5,8 @@ public class ParentClass
         System.out.println("--ParentClass Constructor--");
     }
 
-    public void parentFun()
+    public void makeJjajang()
     {
-        System.out.println("--ParentFun() Start--");
+        System.out.println("---makeJjajang()---");
     }
 }
