@@ -8,7 +8,7 @@ public class ExClass extends AbstractClass
 
     public ExClass(int i, String s)
     {
-        super(i, s) ;
+        super(i, s);
     }
 
     @Override
