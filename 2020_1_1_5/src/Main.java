@@ -10,6 +10,5 @@ public class Main
         System.out.println(myCard.getCardNum());
         System.out.println(yourCard.getCardNum());
 
-
     }
 }
