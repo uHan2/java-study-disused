@@ -1,10 +1,16 @@
 public class Card
 {
-    private static int cardNum = 10000;
+    private int cardNum;
+    private static int serialNum = 10000;
 
-    public static int getCardNum()
+    Card()
     {
-        cardNum++;
+        serialNum++;
+        cardNum = serialNum;
+    }
+
+    public int getCardNum()
+    {
         return cardNum;
     }
 

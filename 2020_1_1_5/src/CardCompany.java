@@ -14,7 +14,10 @@ public class CardCompany
 
     public Card createCard()
     {
-        return new Card();
+        Card card = new Card();
+        return card;
     }
+
+
 
 }
