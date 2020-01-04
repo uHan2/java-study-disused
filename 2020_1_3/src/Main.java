@@ -17,7 +17,7 @@ public class Main
         customerList.add(customer4);
         customerList.add(customer5);
 
-        for(Customer customer : customerList)
+        for (Customer customer : customerList)
         {
             customer.calcPrice(10000);
             customer.showCustomerInfo();
