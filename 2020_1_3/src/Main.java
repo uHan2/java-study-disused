@@ -4,20 +4,37 @@ public class Main
 {
     public static void main(String[] args)
     {
-        ArrayList<Customer> customerList = new ArrayList<Customer>();
+        ArrayList<Customer> silverCustomerList = new ArrayList<Customer>();
+        ArrayList<Customer> goldCustomerList = new ArrayList<Customer>();
+        ArrayList<Customer> vipCustomerList = new ArrayList<Customer>();
+
         Customer customer1 = new Customer("James", "1");
         Customer customer2 = new Customer("Alice", "2");
         Customer customer3 = new GOLDCustomer("Scott", "3");
         Customer customer4 = new GOLDCustomer("Raymond", "4");
         Customer customer5 = new VIPCustomer("Zeus", "5");
 
-        customerList.add(customer1);
-        customerList.add(customer2);
-        customerList.add(customer3);
-        customerList.add(customer4);
-        customerList.add(customer5);
+        silverCustomerList.add(customer1);
+        silverCustomerList.add(customer2);
+        goldCustomerList.add(customer3);
+        goldCustomerList.add(customer4);
+        vipCustomerList.add(customer5);
 
-        for (Customer customer : customerList)
+        for (Customer customer : silverCustomerList)
+        {
+            customer.calcPrice(10000);
+            customer.showCustomerInfo();
+            System.out.println();
+        }
+
+        for (Customer customer : goldCustomerList)
+        {
+            customer.calcPrice(10000);
+            customer.showCustomerInfo();
+            System.out.println();
+        }
+
+        for (Customer customer : vipCustomerList)
         {
             customer.calcPrice(10000);
             customer.showCustomerInfo();
