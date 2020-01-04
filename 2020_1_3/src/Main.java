@@ -11,7 +11,6 @@ public class Main
         Customer customer4 = new GOLDCustomer("Raymond", "4");
         Customer customer5 = new VIPCustomer("Zeus", "5");
 
-
         customerList.add(customer1);
         customerList.add(customer2);
         customerList.add(customer3);
