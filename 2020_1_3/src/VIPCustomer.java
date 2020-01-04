@@ -29,6 +29,6 @@ public class VIPCustomer extends Customer
     {
         super.showCustomerInfo();
         System.out.println("Discounted Price : " + discountedPrice);
-        System.out.println("Your Personal Agent : " + agentID);
+        System.out.println("Your Personal Agent's ID : " + agentID);
     }
 }
