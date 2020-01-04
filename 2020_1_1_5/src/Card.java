@@ -3,7 +3,7 @@ public class Card
     private int cardNum;
     private static int serialNum = 10000;
 
-    Card()
+    public Card()
     {
         serialNum++;
         cardNum = serialNum;
