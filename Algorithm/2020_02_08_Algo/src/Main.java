@@ -26,7 +26,6 @@ public class Main
         int eight_count = 0;
         int nine_count = 0;
 
-
         int[] arr = Stream.of(String.valueOf(sum).split("")).mapToInt(Integer::parseInt).toArray();
 
         for(int i = 0 ; i < arr.length ; i++)
