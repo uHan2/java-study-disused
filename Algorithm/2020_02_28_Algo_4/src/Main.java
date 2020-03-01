@@ -12,11 +12,8 @@ public class Main
 
         for(int i = 0 ; i < count ; i++)
         {
-
-
             sum += (int)num.charAt(i) - 48;
         }
-
         System.out.print(sum);
     }
 }
