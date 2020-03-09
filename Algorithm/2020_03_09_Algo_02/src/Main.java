@@ -8,18 +8,18 @@ public class Main
 
         int num = Integer.parseInt(br.readLine());
 
-        System.out.print(factorial(num));
+        System.out.println(fibo(num));
     }
 
-    public static int factorial(int num)
+    public static int fibo(int num)
     {
         if(num <= 1)
         {
-            return 1;
+            return num;
         }
         else
         {
-            return factorial(num - 1) * num;
+            return fibo(num - 1) + fibo(num-2);
         }
     }
 }
