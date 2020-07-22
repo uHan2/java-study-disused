@@ -26,7 +26,7 @@ public class Main
 
         for (int i = 0; i < n; i++)
         {
-            str = new StringTokenizer(br.readLine());
+//            str = new StringTokenizer(br.readLine());
             for (int j = 0; j < m; j++)
             {
                 map[i][j] = Integer.parseInt(str.nextToken());
