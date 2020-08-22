@@ -94,7 +94,6 @@ public class Main
     {
         int boxStartCol = convertNum(col);
         int boxStartRow = convertNum(row);
-        ;
 
         for (int i = boxStartCol; i < boxStartCol + 3; i++)
         {
