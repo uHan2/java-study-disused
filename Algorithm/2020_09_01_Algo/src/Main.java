@@ -44,7 +44,7 @@ public class Main
 
     public static void teamMatching(int idx, int cnt)
     {
-        if (cnt == N / 2)
+        if (cnt == N / 2)https://www.acmicpc.net/problem/1991
         {
             teamStartSum = 0;
             teamLinkSum = 0;
