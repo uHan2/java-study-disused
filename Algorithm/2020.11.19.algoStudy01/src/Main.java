@@ -11,25 +11,23 @@ public class Main
 
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-        int result = 0;
+        int count = 0;
 
-        while (true)
+        while(n != 1)
         {
-            int target = (n / k) * k;
-            result += (n - target);
-            n = target;
-
-            if (n < k)
+            if(n % k == 0)
             {
-                break;
+                n /= k;
+                count++;
             }
-
-            result += 1;
-            n /= k;
+            else
+            {
+                n -= 1;
+                count++;
+            }
         }
 
-        result += (n - 1);
-        System.out.println(result);
+        System.out.println(count);
     }
 
 }
