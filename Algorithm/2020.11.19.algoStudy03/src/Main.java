@@ -1,86 +1,94 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main
 {
-    public static int n, m, x, y, direction;
-    // 방문한 위치를 저장하기 위한 맵을 생성하여 0으로 초기화
-    public static int[][] d = new int[50][50];
-    // 전체 맵 정보
-    public static int[][] arr = new int[50][50];
+    static int[][] map;
+    static boolean[][] visit;
+    static int playerDir;
+    static int playerRowPos;
+    static int playerColPos;
+    //북동남서를 바라볼때 움직이는 경로
+    static int[] dRow = {-1, 0, 1, 0};
+    static int[] dCol = {0, 1, 0, -1};
 
-    // 북, 동, 남, 서 방향 정의
-    public static int dx[] = {-1, 0, 1, 0};
-    public static int dy[] = {0, 1, 0, -1};
-
-    // 왼쪽으로 회전
-    public static void turn_left()
+    public static void main(String[] args) throws Exception
     {
-        direction -= 1;
-        if (direction == -1) direction = 3;
-    }
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-    public static void main(String[] args)
-    {
-        Scanner sc = new Scanner(System.in);
+        int mapRow = Integer.parseInt(st.nextToken());
+        int mapCol = Integer.parseInt(st.nextToken());
 
-        // N, M을 공백을 기준으로 구분하여 입력받기
-        n = sc.nextInt();
-        m = sc.nextInt();
+        map = new int[mapRow][mapCol];
+        visit = new boolean[mapRow][mapCol];
 
-        // 현재 캐릭터의 X 좌표, Y 좌표, 방향을 입력받기
-        x = sc.nextInt();
-        y = sc.nextInt();
-        direction = sc.nextInt();
-        d[x][y] = 1; // 현재 좌표 방문 처리
+        st = new StringTokenizer(br.readLine());
+        playerRowPos = Integer.parseInt(st.nextToken());
+        playerColPos = Integer.parseInt(st.nextToken());
+        playerDir = Integer.parseInt(st.nextToken());
 
-        // 전체 맵 정보를 입력 받기
-        for (int i = 0; i < n; i++)
+        visit[playerRowPos][playerColPos] = true;
+
+        for (int i = 0; i < mapRow; i++)
         {
-            for (int j = 0; j < m; j++)
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < mapCol; j++)
             {
-                arr[i][j] = sc.nextInt();
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        // 시뮬레이션 시작
-        int cnt = 1;
-        int turn_time = 0;
+        int count = 0;
+        int visitCount = 1;
+
         while (true)
         {
-            // 왼쪽으로 회전
-            turn_left();
-            int nx = x + dx[direction];
-            int ny = y + dy[direction];
-            // 회전한 이후 정면에 가보지 않은 칸이 존재하는 경우 이동
-            if (d[nx][ny] == 0 && arr[nx][ny] == 0)
+            turnPlayer();
+
+            if ((map[playerRowPos + dRow[playerDir]][playerColPos + dCol[playerDir]] == 0) &&
+                    (visit[playerRowPos + dRow[playerDir]][playerColPos + dCol[playerDir]] == false))
             {
-                d[nx][ny] = 1;
-                x = nx;
-                y = ny;
-                cnt += 1;
-                turn_time = 0;
-                continue;
+                visit[playerRowPos + dRow[playerDir]][playerColPos + dCol[playerDir]] = true;
+                visitCount++;
+
+                playerRowPos += dRow[playerDir];
+                playerColPos += dCol[playerDir];
+
+                count = 0;
             }
-            // 회전한 이후 정면에 가보지 않은 칸이 없거나 바다인 경우
-            else turn_time += 1;
-            // 네 방향 모두 갈 수 없는 경우
-            if (turn_time == 4)
+            else
             {
-                nx = x - dx[direction];
-                ny = y - dy[direction];
-                // 뒤로 갈 수 있다면 이동하기
-                if (arr[nx][ny] == 0)
+                count++;
+            }
+
+            if(count == 4)
+            {
+                if(map[playerRowPos - dRow[playerDir]][playerColPos - dCol[playerDir]] == 1)
                 {
-                    x = nx;
-                    y = ny;
+                    break;
                 }
-                // 뒤가 바다로 막혀있는 경우
-                else break;
-                turn_time = 0;
+                else
+                {
+                    count = 0;
+                    playerRowPos -= dRow[playerDir];
+                    playerColPos -= dCol[playerDir];
+                }
+
             }
         }
 
-        System.out.println(cnt);
+        System.out.println(visitCount);
     }
 
+    static void turnPlayer()
+    {
+        playerDir -= 1;
+
+        if (playerDir < 0)
+        {
+            playerDir = 3;
+        }
+    }
 }
