@@ -57,19 +57,17 @@ public class Main
                 playerColPos += dCol[playerDir];
 
                 count = 0;
-            }
-            else
+            } else
             {
                 count++;
             }
 
-            if(count == 4)
+            if (count == 4)
             {
-                if(map[playerRowPos - dRow[playerDir]][playerColPos - dCol[playerDir]] == 1)
+                if (map[playerRowPos - dRow[playerDir]][playerColPos - dCol[playerDir]] == 1)
                 {
                     break;
-                }
-                else
+                } else
                 {
                     count = 0;
                     playerRowPos -= dRow[playerDir];
