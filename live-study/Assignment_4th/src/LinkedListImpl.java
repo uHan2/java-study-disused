@@ -1,12 +1,19 @@
+import java.util.List;
+
 public class LinkedListImpl implements LinkedList
 {
+    public ListNode firstAdd(ListNode head)
+    {
+        ListNode node = head;
+        return node;
+    }
     @Override
     public ListNode add(ListNode head, ListNode nodeToAdd, int position)
     {
         ListNode node = head;
         ListNode preNode = head;
 
-        for (int i = 0; i < position - 1; i++)
+        for (int i = 0; i < position-1; i++)
         {
             preNode = node;
             node = node.next; // head를 마지막 노드까지 이동
@@ -38,15 +45,29 @@ public class LinkedListImpl implements LinkedList
     @Override
     public boolean contains(ListNode head, ListNode nodeTocheck)
     {
-        while (head.next != null) // 끝까지 조회 중에
+        ListNode node = head;
+
+        while (node.next != null) // 끝까지 조회 중에
         {
-            if(head.next == nodeTocheck) // nodeTocheck 가 있다면 return true
+            if(node.next == nodeTocheck) // nodeTocheck 가 있다면 return true
             {
                 return true;
             }
-            head = head.next;
+            node = node.next;
         }
 
         return false;
+    }
+
+    public ListNode getNode(ListNode head, int index)
+    {
+        ListNode node = head;
+
+        while (node.next != null) // 끝까지 조회 중에
+        {
+            node = node.next;
+        }
+
+        return node;
     }
 }
