@@ -1,20 +1,21 @@
+package LinkedList;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LinkedListImplTest
+class ListNodeImplTest
 {
     @Test
     public void add() throws Exception
     {
         //given
-        LinkedListImpl linkedList = new LinkedListImpl();
-        ListNode firstNode = new ListNode(1);
-        ListNode secondNode = new ListNode(2);
-        ListNode thirdNode = new ListNode(3);
+        ListNodeImpl linkedList = new ListNodeImpl();
+        ListNodeImpl firstNode = new ListNodeImpl(1);
+        ListNodeImpl secondNode = new ListNodeImpl(2);
+        ListNodeImpl thirdNode = new ListNodeImpl(3);
 
         //when
-        linkedList.firstAdd(firstNode);
         linkedList.add(firstNode, secondNode, 2);
         linkedList.add(firstNode, thirdNode, 3); // 1 -> 2 -> 3
 
@@ -23,14 +24,14 @@ class LinkedListImplTest
     }
 
     @Test
-    public void remove () throws Exception
+    public void remove() throws Exception
     {
         //given
-        LinkedListImpl linkedList = new LinkedListImpl();
-        ListNode firstNode = new ListNode(1);
-        ListNode secondNode = new ListNode(2);
-        ListNode thirdNode = new ListNode(3);
-        linkedList.firstAdd(firstNode);
+        ListNodeImpl linkedList = new ListNodeImpl();
+        ListNodeImpl firstNode = new ListNodeImpl(1);
+        ListNodeImpl secondNode = new ListNodeImpl(2);
+        ListNodeImpl thirdNode = new ListNodeImpl(3);
+
         linkedList.add(firstNode, secondNode, 2);
         linkedList.add(firstNode, thirdNode, 3); // 1 -> 2 -> 3
 
@@ -43,14 +44,14 @@ class LinkedListImplTest
     }
 
     @Test
-    public void contains () throws Exception
+    public void contains() throws Exception
     {
         //given
-        LinkedListImpl linkedList = new LinkedListImpl();
-        ListNode firstNode = new ListNode(1);
-        ListNode secondNode = new ListNode(2);
-        ListNode thirdNode = new ListNode(3);
-        linkedList.firstAdd(firstNode);
+        ListNodeImpl linkedList = new ListNodeImpl();
+        ListNodeImpl firstNode = new ListNodeImpl(1);
+        ListNodeImpl secondNode = new ListNodeImpl(2);
+        ListNodeImpl thirdNode = new ListNodeImpl(3);
+
         linkedList.add(firstNode, secondNode, 2);
         linkedList.add(firstNode, thirdNode, 3); // 1 -> 2 -> 3
 
@@ -58,6 +59,6 @@ class LinkedListImplTest
         boolean flag = linkedList.contains(firstNode, thirdNode);
 
         //then
-        assertEquals(true, flag);
+        assertTrue(flag);
     }
 }
