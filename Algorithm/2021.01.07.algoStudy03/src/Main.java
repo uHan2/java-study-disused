@@ -67,6 +67,5 @@ public class Main
         {
             System.out.println(graph[1][b] + graph[b][a]);
         }
-
     }
 }
