@@ -24,7 +24,7 @@ public class Main
         Collections.sort(list);
 
         /**
-         * 1 + 2 + 3 으로 1,2,3 의 경우의 수를 전부 체크 가능한가?
+         * result + 1 + 2 + 3 으로 1,2,3 의 경우의 수를 전부 체크 가능한가?
          */
 
         int result = 1;
